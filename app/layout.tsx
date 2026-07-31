@@ -8,6 +8,7 @@ import "./self-learning-chat.css";
 import "./portfolio-lab.css";
 import "./interaction-fixes.css";
 import "./design-system.css";
+import "./professional-polish.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
 import SelfLearningChatbot from "./SelfLearningChatbot";
