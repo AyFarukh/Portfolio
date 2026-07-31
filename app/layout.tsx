@@ -9,6 +9,7 @@ import "./portfolio-lab.css";
 import "./interaction-fixes.css";
 import "./design-system.css";
 import "./professional-polish.css";
+import "./brand-identity.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
 import SelfLearningChatbot from "./SelfLearningChatbot";
