@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./fancy.css";
 import "./multilingual-greeting.css";
+import "./professional.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 
 export const metadata: Metadata = {
