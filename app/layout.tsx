@@ -4,8 +4,10 @@ import "./fancy.css";
 import "./multilingual-greeting.css";
 import "./professional.css";
 import "./backend-features.css";
+import "./self-learning-chat.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
+import SelfLearningChatbot from "./SelfLearningChatbot";
 
 export const metadata: Metadata = {
   title: "Farrukh Sultan | Senior Shopify Plus & Full Stack Developer",
@@ -27,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <MultilingualGreeting />
         {children}
         <PortfolioBackendFeatures />
+        <SelfLearningChatbot />
       </body>
     </html>
   );
