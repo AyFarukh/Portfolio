@@ -3,7 +3,9 @@ import "./globals.css";
 import "./fancy.css";
 import "./multilingual-greeting.css";
 import "./professional.css";
+import "./backend-features.css";
 import MultilingualGreeting from "./MultilingualGreeting";
+import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
 
 export const metadata: Metadata = {
   title: "Farrukh Sultan | Senior Shopify Plus & Full Stack Developer",
@@ -24,6 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <MultilingualGreeting />
         {children}
+        <PortfolioBackendFeatures />
       </body>
     </html>
   );
