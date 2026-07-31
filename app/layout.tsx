@@ -6,6 +6,7 @@ import "./professional.css";
 import "./backend-features.css";
 import "./self-learning-chat.css";
 import "./portfolio-lab.css";
+import "./interaction-fixes.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
 import SelfLearningChatbot from "./SelfLearningChatbot";
