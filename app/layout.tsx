@@ -7,10 +7,12 @@ import "./backend-features.css";
 import "./self-learning-chat.css";
 import "./portfolio-lab.css";
 import "./interaction-fixes.css";
+import "./design-system.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
 import SelfLearningChatbot from "./SelfLearningChatbot";
 import PortfolioLab from "./PortfolioLab";
+import SiteExperience from "./SiteExperience";
 
 export const metadata: Metadata = {
   title: "Farrukh Sultan | Senior Shopify Plus & Full Stack Developer",
@@ -27,8 +29,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <SiteExperience />
         <MultilingualGreeting />
         {children}
         <PortfolioLab />
