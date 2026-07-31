@@ -52,8 +52,12 @@ function ContactForm() {
         message: `I would like to discuss a project similar to ${project}. `,
       }));
     };
+
     window.addEventListener("portfolio-project-interest", handler);
-    return () => window.removeEventListener("portfolio-project-interest", handler);
+
+    return () => {
+      window.removeEventListener("portfolio-project-interest", handler);
+    };
   }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -130,15 +134,22 @@ function Chatbot() {
   ]);
   const endRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => endRef.current?.scrollIntoView({ behavior: "smooth" }), [messages, loading]);
+  useEffect(() => {
+    const node = endRef.current;
+    if (!node) return;
+
+    node.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [messages, loading]);
 
   async function send(text = input) {
     const clean = text.trim();
     if (!clean || loading) return;
+
     const next = [...messages, { role: "user", content: clean } as ChatMessage];
     setMessages(next);
     setInput("");
     setLoading(true);
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -146,9 +157,20 @@ function Chatbot() {
         body: JSON.stringify({ message: clean, history: messages }),
       });
       const data = await response.json();
-      setMessages((current) => [...current, { role: "assistant", content: data.reply || "Please use the contact form and Farrukh will respond directly." }]);
+
+      if (!response.ok) {
+        throw new Error(data.error || "Unable to reach the assistant.");
+      }
+
+      setMessages((current) => [
+        ...current,
+        { role: "assistant", content: data.reply || "Please use the contact form and Farrukh will respond directly." },
+      ]);
     } catch {
-      setMessages((current) => [...current, { role: "assistant", content: "I’m unable to connect right now. Please send your details through the project form." }]);
+      setMessages((current) => [
+        ...current,
+        { role: "assistant", content: "I’m unable to connect right now. Please send your details through the project form." },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -164,7 +186,7 @@ function Chatbot() {
           {loading && <div className="chat-message assistant typing"><i/><i/><i/></div>}
           <div ref={endRef} />
         </div>
-        <form className="chat-input" onSubmit={(event) => { event.preventDefault(); send(); }}><input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask about services…" /><button aria-label="Send message"><Send size={17} /></button></form>
+        <form className="chat-input" onSubmit={(event) => { event.preventDefault(); void send(); }}><input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask about services…" /><button aria-label="Send message" disabled={loading}><Send size={17} /></button></form>
       </div>}
       <button className="chat-launcher" onClick={() => setOpen((value) => !value)} aria-label={open ? "Close portfolio assistant" : "Open portfolio assistant"}>{open ? <X /> : <><MessageCircle /><span>Ask about services</span></>}</button>
     </div>
@@ -174,40 +196,66 @@ function Chatbot() {
 function useProjectEnhancements() {
   useEffect(() => {
     const cards = Array.from(document.querySelectorAll<HTMLAnchorElement>(".case-card"));
+    const cleanup: Array<() => void> = [];
+
     cards.forEach((card, index) => {
       const project = projectScreens[index];
       if (!project || card.querySelector(".case-device-showcase")) return;
       card.style.cursor = "pointer";
+
       if (card.href && card.href !== window.location.href + "#contact") {
         card.target = "_blank";
         card.rel = "noopener noreferrer";
       }
+
       const media = document.createElement("div");
       media.className = "case-device-showcase";
+
       if (project.url.startsWith("http")) {
         media.innerHTML = `<div class="device desktop"><div class="device-bar"><i></i><i></i><i></i><span>${project.url.replace("https://", "")}</span></div><img src="${screenshot(project.url, 1400)}" alt="${project.name} desktop website preview" loading="lazy" /></div><div class="device mobile"><div class="mobile-notch"></div><img src="${screenshot(project.url, 520)}" alt="${project.name} mobile website preview" loading="lazy" /></div>`;
       } else {
         media.innerHTML = `<div class="ai-preview"><span>AI / COMPUTER VISION</span><strong>Wheel detection → segmentation → realistic product compositing</strong><div class="ai-grid"></div></div>`;
       }
+
       const visual = card.querySelector(".case-visual");
       visual?.replaceWith(media);
     });
 
     const archiveItems = Array.from(document.querySelectorAll<HTMLElement>(".archive-grid > div"));
+
     archiveItems.forEach((item) => {
       if (item.dataset.enhanced) return;
       item.dataset.enhanced = "true";
       item.tabIndex = 0;
       item.setAttribute("role", "button");
       item.setAttribute("aria-label", `Discuss ${item.textContent?.trim() || "this project"}`);
+
       const activate = () => {
         const name = item.textContent?.replace(/^\d+/, "").trim() || "this project";
         window.dispatchEvent(new CustomEvent("portfolio-project-interest", { detail: name }));
         document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
       };
+
+      const keyHandler = (event: KeyboardEvent) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          activate();
+        }
+      };
+
       item.addEventListener("click", activate);
-      item.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") activate(); });
+      item.addEventListener("keydown", keyHandler);
+
+      cleanup.push(() => {
+        item.removeEventListener("click", activate);
+        item.removeEventListener("keydown", keyHandler);
+        delete item.dataset.enhanced;
+      });
     });
+
+    return () => {
+      cleanup.forEach((dispose) => dispose());
+    };
   }, []);
 }
 
@@ -220,7 +268,10 @@ export default function PortfolioBackendFeatures() {
     setContactTarget(target);
   }, []);
 
-  const contactPortal = useMemo(() => contactTarget ? createPortal(<ContactForm />, contactTarget) : null, [contactTarget]);
+  const contactPortal = useMemo(
+    () => (contactTarget ? createPortal(<ContactForm />, contactTarget) : null),
+    [contactTarget],
+  );
 
   return <>{contactPortal}<Chatbot /></>;
 }
