@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./fancy.css";
+import "./multilingual-greeting.css";
+import MultilingualGreeting from "./MultilingualGreeting";
 
 export const metadata: Metadata = {
   title: "Farrukh Sultan | Senior Shopify Plus & Full Stack Developer",
@@ -18,7 +20,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MultilingualGreeting />
+        {children}
+      </body>
     </html>
   );
 }
