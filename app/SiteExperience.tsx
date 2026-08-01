@@ -43,14 +43,17 @@ export default function SiteExperience() {
   useEffect(() => {
     const organize = () => {
       const main = document.querySelector("main");
+      const about = document.querySelector("#about");
       const experience = document.querySelector("#experience");
       const archive = document.querySelector(".archive");
+      const clientSuccess = document.querySelector("#client-success");
       const stack = document.querySelector("#stack-lab");
       const speed = document.querySelector("#speed-lab");
       const type = document.querySelector("#type-lab");
 
-      if (!main || !experience || !archive || !stack || !speed || !type) return false;
+      if (!main || !about || !experience || !archive || !clientSuccess || !stack || !speed || !type) return false;
 
+      main.insertBefore(clientSuccess, about);
       main.insertBefore(stack, experience);
       main.insertBefore(speed, experience);
       main.insertBefore(type, archive);
