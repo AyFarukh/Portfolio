@@ -1,0 +1,27 @@
+export const siteConfig = {
+  name: "Farrukh Sultan",
+  title: "Farrukh Sultan | Senior Shopify Plus & Full Stack Developer",
+  description:
+    "Senior Shopify Plus and Full Stack Developer building custom Shopify apps, checkout extensions, high-performance storefronts, headless commerce and AI-powered products.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://farrukhsultan.dev",
+  email: "farukh.5937@gmail.com",
+  location: "Lahore, Pakistan",
+  linkedin: "https://www.linkedin.com/in/farrukh-sultan-339721ba/",
+  github: "https://github.com/AyFarukh",
+  keywords: [
+    "Farrukh Sultan",
+    "Senior Shopify Developer",
+    "Shopify Plus Developer",
+    "Shopify App Developer",
+    "Full Stack Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Node.js Developer",
+    "Shopify Checkout Extensions",
+    "Shopify Functions",
+    "Headless Commerce Developer",
+    "Hydrogen Developer",
+    "Shopify Performance Optimization",
+    "AI Ecommerce Developer",
+  ],
+};
