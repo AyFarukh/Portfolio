@@ -11,6 +11,7 @@ import "./design-system.css";
 import "./professional-polish.css";
 import "./brand-identity.css";
 import "./project-gallery.css";
+import "./local-project-images.css";
 import "./client-success.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
