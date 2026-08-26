@@ -6,7 +6,11 @@ on:
     branches:
       - feature/self-learning-chatbot
     paths:
+      - "app/**"
       - "scripts/capture-project-screenshots.mjs"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
       - ".github/workflows/project-screenshots.yml"
 
 permissions:
@@ -27,16 +31,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
-      - name: Install Playwright
+      - name: Install app dependencies
+        run: npm ci
+
+      - name: Validate Next.js build
+        run: npm run build
+
+      - name: Install screenshot tooling
         run: |
-          npm install --no-save playwright sharp
+          npm install --no-save --package-lock=false playwright sharp
           npx playwright install --with-deps chromium
 
-      - name: Capture screenshots
+      - name: Capture local project screenshots
         run: node scripts/capture-project-screenshots.mjs
 
-      - name: Commit screenshots
+      - name: Commit WebP screenshots
         run: |
           git config user.name "portfolio-screenshot-bot"
           git config user.email "actions@github.com"
