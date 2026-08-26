@@ -12,6 +12,7 @@ import "./professional-polish.css";
 import "./brand-identity.css";
 import "./project-gallery.css";
 import "./client-success.css";
+import "./mobile-navigation.css";
 import MultilingualGreeting from "./MultilingualGreeting";
 import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
 import SelfLearningChatbot from "./SelfLearningChatbot";
@@ -20,6 +21,7 @@ import SiteExperience from "./SiteExperience";
 import StructuredData from "./StructuredData";
 import ProjectScreenshotGallery from "./ProjectScreenshotGallery";
 import ClientSuccess from "./ClientSuccess";
+import MobileNavigation from "./MobileNavigation";
 import { siteConfig } from "./seo-config";
 
 export const viewport: Viewport = {
@@ -88,6 +90,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <StructuredData />
         <SiteExperience />
+        <MobileNavigation />
         <MultilingualGreeting />
         {children}
         <ClientSuccess />
