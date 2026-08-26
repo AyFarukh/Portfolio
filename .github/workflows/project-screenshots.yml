@@ -52,16 +52,27 @@ jobs:
       - name: Capture local project screenshots
         run: node scripts/capture-project-screenshots.mjs
 
-      - name: Commit and publish WebP screenshots
+      - name: Publish WebP screenshots on latest branch
         run: |
+          rm -rf /tmp/portfolio-projects
+          mkdir -p /tmp/portfolio-projects
+          cp -a public/projects/. /tmp/portfolio-projects/
+
+          git fetch origin feature/self-learning-chatbot
+          git reset --hard origin/feature/self-learning-chatbot
+
+          mkdir -p public/projects
+          rm -f public/projects/*.webp
+          cp -a /tmp/portfolio-projects/. public/projects/
+
           git config user.name "portfolio-screenshot-bot"
           git config user.email "actions@github.com"
           git add public/projects
+
           if git diff --cached --quiet; then
-            echo "No screenshot changes"
+            echo "Screenshots already match the latest branch"
             exit 0
           fi
+
           git commit -m "chore: refresh local project screenshots"
-          git fetch origin feature/self-learning-chatbot
-          git rebase origin/feature/self-learning-chatbot
           git push origin HEAD:feature/self-learning-chatbot
