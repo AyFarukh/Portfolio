@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "screenshots": "node scripts/capture-project-screenshots.mjs",
+    "screenshots:refresh": "node scripts/refresh-project-screenshots.mjs"
   },
   "dependencies": {
     "@types/node": "^22.10.2",
