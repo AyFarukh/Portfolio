@@ -69,6 +69,20 @@ export default function SiteExperience() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleImageError = (event: Event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLImageElement)) return;
+      if (!target.getAttribute("src")?.startsWith("/projects/")) return;
+
+      target.style.display = "none";
+      target.closest(".device, .project-desktop-frame, .project-mobile-frame")?.classList.add("project-preview-missing");
+    };
+
+    document.addEventListener("error", handleImageError, true);
+    return () => document.removeEventListener("error", handleImageError, true);
+  }, []);
+
   const options: Array<{ value: ThemePreference; label: string; icon: typeof Sun }> = [
     { value: "light", label: "Light", icon: Sun },
     { value: "dark", label: "Dark", icon: Moon },
