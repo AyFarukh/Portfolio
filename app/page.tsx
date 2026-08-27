@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, CheckCircle2, Github, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Github, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
 
 const projects = [
   { slug: "maniac-nails", index: "01", name: "Maniac Nails", eyebrow: "Shopify Plus · Full Build · Custom Commerce", url: "https://maniac-nails.com", description: "A production Shopify Plus storefront built around complex bundle logic, custom checkout behavior and maintainable theme architecture.", results: ["Custom bundle architecture", "Checkout extensions", "Cart Transform API"], stack: ["Shopify Plus", "React", "Node.js", "Liquid"] },
@@ -63,7 +63,7 @@ export default function Home() {
       <section className="premium-trust"><div className="premium-shell premium-trust-inner"><span>8+ YEARS</span><i/><span>SHOPIFY PLUS</span><i/><span>FULL STACK</span><i/><span>5★ CLIENT RATING</span><i/><span>REMOTE WORLDWIDE</span></div></section>
 
       <section id="work" className="premium-section premium-shell">
-        <Reveal><div className="premium-section-head"><div><span>Selected work</span><h2>Commercial engineering,<br/>not portfolio decoration.</h2></div><p>Production projects where architecture, user experience and business goals had to work together.</p></div></Reveal>
+        <Reveal><div className="premium-section-head"><div><span>Selected work</span><h2>Selected commerce work.<br/>Built to perform.</h2></div><p>Production Shopify and full-stack projects shaped by performance, conversion, maintainability and real business goals.</p></div></Reveal>
         <div className="premium-projects">{projects.map((project,index)=><Reveal key={project.name} delay={index*.04}><article className="premium-project"><a className="premium-project-media" href={project.url} target="_blank" rel="noreferrer"><div className="premium-browser"><i/><i/><i/><span>{project.url.replace("https://","")}</span></div><div className="premium-image-fallback"><strong>{project.name}</strong><span>Production storefront</span></div><img src={`/projects/${project.slug}-desktop.webp`} alt={`${project.name} storefront`} loading="lazy"/><div className="premium-mobile-preview"><img src={`/projects/${project.slug}-mobile.webp`} alt={`${project.name} mobile storefront`} loading="lazy"/></div></a><div className="premium-project-copy"><div className="premium-project-number">{project.index}</div><span className="premium-project-eyebrow">{project.eyebrow}</span><h3>{project.name}</h3><p>{project.description}</p><div className="premium-results">{project.results.map(item=><span key={item}><CheckCircle2 size={15}/>{item}</span>)}</div><div className="premium-stack">{project.stack.map(item=><span key={item}>{item}</span>)}</div><a className="premium-case-link" href={project.url} target="_blank" rel="noreferrer">Visit project <ArrowUpRight size={16}/></a></div></article></Reveal>)}</div>
       </section>
 
