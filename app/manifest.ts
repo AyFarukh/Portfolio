@@ -10,7 +10,12 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#07090d",
     theme_color: "#080b11",
     icons: [
-      { src: "/farrukh-favicon.jpg", sizes: "192x192", type: "image/jpeg", purpose: "any" },
+      {
+        src: "/farrukh-favicon.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
     ],
   };
 }

@@ -1,27 +1,129 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, CheckCircle2, Github, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
 
 const projects = [
-  { slug: "maniac-nails", index: "01", name: "Maniac Nails", eyebrow: "Shopify Plus · Full Build · Custom Commerce", url: "https://maniac-nails.com", description: "A production Shopify Plus storefront built around complex bundle logic, custom checkout behavior and maintainable theme architecture.", results: ["Custom bundle architecture", "Checkout extensions", "Cart Transform API"], stack: ["Shopify Plus", "React", "Node.js", "Liquid"] },
-  { slug: "free-the-roots", index: "02", name: "Free The Roots", eyebrow: "Shopify Plus · Product Flows · Performance", url: "https://freetheroots.com", description: "A conversion-focused hair-care storefront with custom product flows, member experiences and purpose-built commerce integrations.", results: ["Mobile-first experience", "Custom product logic", "Performance focused"], stack: ["Shopify Plus", "Checkout UI", "Custom Apps", "Liquid"] },
-  { slug: "laudi-vidni", index: "03", name: "Laudi Vidni", eyebrow: "Luxury Commerce · Product Configurator", url: "https://laudividni.com", description: "A premium product experience that lets customers configure leather, lining, hardware and strap combinations directly on the storefront.", results: ["Real-time configuration", "Metafield architecture", "Premium responsive UX"], stack: ["Shopify", "JavaScript", "AJAX", "Metafields"] },
-  { slug: "starfire-direct", index: "04", name: "Starfire Direct", eyebrow: "Large Catalog · Search · Performance", url: "https://starfiredirect.com", description: "A large-catalog storefront engineered around product discovery, dynamic filtering and a responsive shopping experience at scale.", results: ["500+ SKU catalog", "Search & discovery", "Responsive performance"], stack: ["Shopify", "Liquid", "Search & Discovery", "JavaScript"] },
+  {
+    slug: "maniac-nails",
+    index: "01",
+    name: "Maniac Nails",
+    eyebrow: "Shopify Plus · Full Build · Custom Commerce",
+    url: "https://maniac-nails.com",
+    description:
+      "A production Shopify Plus storefront built around complex bundle logic, custom checkout behavior and maintainable theme architecture.",
+    results: [
+      "Custom bundle architecture",
+      "Checkout extensions",
+      "Cart Transform API",
+    ],
+    stack: ["Shopify Plus", "React", "Node.js", "Liquid"],
+  },
+  {
+    slug: "free-the-roots",
+    index: "02",
+    name: "Free The Roots",
+    eyebrow: "Shopify Plus · Product Flows · Performance",
+    url: "https://freetheroots.com",
+    description:
+      "A conversion-focused hair-care storefront with custom product flows, member experiences and purpose-built commerce integrations.",
+    results: [
+      "Mobile-first experience",
+      "Custom product logic",
+      "Performance focused",
+    ],
+    stack: ["Shopify Plus", "Checkout UI", "Custom Apps", "Liquid"],
+  },
+  {
+    slug: "laudi-vidni",
+    index: "03",
+    name: "Laudi Vidni",
+    eyebrow: "Luxury Commerce · Product Configurator",
+    url: "https://laudividni.com",
+    description:
+      "A premium product experience that lets customers configure leather, lining, hardware and strap combinations directly on the storefront.",
+    results: [
+      "Real-time configuration",
+      "Metafield architecture",
+      "Premium responsive UX",
+    ],
+    stack: ["Shopify", "JavaScript", "AJAX", "Metafields"],
+  },
+  {
+    slug: "starfire-direct",
+    index: "04",
+    name: "Starfire Direct",
+    eyebrow: "Large Catalog · Search · Performance",
+    url: "https://starfiredirect.com",
+    description:
+      "A large-catalog storefront engineered around product discovery, dynamic filtering and a responsive shopping experience at scale.",
+    results: [
+      "500+ SKU catalog",
+      "Search & discovery",
+      "Responsive performance",
+    ],
+    stack: ["Shopify", "Liquid", "Search & Discovery", "JavaScript"],
+  },
 ];
 
 const stackGroups = [
-  ["Commerce", ["Shopify Plus", "Liquid / OS 2.0", "Checkout UI Extensions", "Shopify Functions", "Cart Transform API", "Hydrogen"]],
-  ["Frontend", ["React", "Next.js", "TypeScript", "JavaScript", "Framer Motion", "GraphQL"]],
-  ["Backend", ["Node.js", "NestJS", "FastAPI", "PostgreSQL", "MongoDB", "Docker"]],
-  ["AI / Systems", ["Python", "OpenCV", "YOLO", "Computer Vision", "REST APIs", "CI/CD"]],
+  [
+    "Commerce",
+    [
+      "Shopify Plus",
+      "Liquid / OS 2.0",
+      "Checkout UI Extensions",
+      "Shopify Functions",
+      "Cart Transform API",
+      "Hydrogen",
+    ],
+  ],
+  [
+    "Frontend",
+    [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Framer Motion",
+      "GraphQL",
+    ],
+  ],
+  [
+    "Backend",
+    ["Node.js", "NestJS", "FastAPI", "PostgreSQL", "MongoDB", "Docker"],
+  ],
+  [
+    "AI / Systems",
+    ["Python", "OpenCV", "YOLO", "Computer Vision", "REST APIs", "CI/CD"],
+  ],
 ];
 
 const expertise = [
-  ["Shopify Plus", "Architecture, Functions, Checkout UI Extensions, Cart Transform API and advanced storefront logic."],
-  ["Custom Apps", "Private and public app architecture with React, Node.js, GraphQL, webhooks and backend integrations."],
-  ["Full Stack", "Next.js, TypeScript, Node.js, NestJS, PostgreSQL, MongoDB, Docker and production API systems."],
-  ["AI Products", "Python, FastAPI and computer vision systems integrated into real customer-facing ecommerce workflows."],
+  [
+    "Shopify Plus",
+    "Architecture, Functions, Checkout UI Extensions, Cart Transform API and advanced storefront logic.",
+  ],
+  [
+    "Custom Apps",
+    "Private and public app architecture with React, Node.js, GraphQL, webhooks and backend integrations.",
+  ],
+  [
+    "Full Stack",
+    "Next.js, TypeScript, Node.js, NestJS, PostgreSQL, MongoDB, Docker and production API systems.",
+  ],
+  [
+    "AI Products",
+    "Python, FastAPI and computer vision systems integrated into real customer-facing ecommerce workflows.",
+  ],
 ];
 
 const experience = [
@@ -31,69 +133,449 @@ const experience = [
   ["2017 — 2019", "Freelance Software Developer", "Independent · Upwork"],
 ];
 
-const moreWork = ["Slingshot Sports", "CPAP Machines Canada", "Nectar USA", "Salty Crush", "Vibe Kayaks", "The Cacao Club", "Dukier", "Coin Mining Central"];
+const moreWork = [
+  "Slingshot Sports",
+  "CPAP Machines Canada",
+  "Nectar USA",
+  "Salty Crush",
+  "Vibe Kayaks",
+  "The Cacao Club",
+  "Dukier",
+  "Coin Mining Central",
+];
 
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  return <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: .72, delay, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>;
+function Reveal({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.72, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 export default function Home() {
   return (
     <main className="premium-home">
       <nav className="premium-nav premium-shell">
-        <a className="premium-brand" href="#top"><img src="/farrukh-favicon.jpg" alt="Farrukh Sultan" /><span><strong>Farrukh Sultan</strong><small>Shopify Plus · Full Stack</small></span></a>
-        <div className="premium-links"><a href="#work">Work</a><a href="#coding">Coding</a><a href="#stack">Stack</a><a href="#expertise">Expertise</a><a href="#about">About</a></div>
-        <div className="premium-nav-actions"><a className="premium-wa" href="https://wa.me/923244176151" target="_blank" rel="noreferrer"><MessageCircle size={16} /></a><a className="premium-talk" href="mailto:farukhsultan.dev@gmail.com">Let&apos;s talk <ArrowUpRight size={16} /></a></div>
+        <a className="premium-brand" href="#top">
+          <img src="/farrukh-favicon.png" alt="Farrukh Sultan" />
+          <span>
+            <strong>Farrukh Sultan</strong>
+            <small>Shopify Plus · Full Stack</small>
+          </span>
+        </a>
+        <div className="premium-links">
+          <a href="#work">Work</a>
+          <a href="#coding">Coding</a>
+          <a href="#stack">Stack</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#about">About</a>
+        </div>
+        <div className="premium-nav-actions">
+          <a
+            className="premium-wa"
+            href="https://wa.me/923244176151"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MessageCircle size={16} />
+          </a>
+          <a className="premium-talk" href="mailto:farukhsultan.dev@gmail.com">
+            Let&apos;s talk <ArrowUpRight size={16} />
+          </a>
+        </div>
       </nav>
 
       <section id="top" className="premium-hero premium-shell">
         <div className="premium-hero-copy">
-          <div className="premium-availability"><i /> Available for remote opportunities</div>
-          <h1>Engineering commerce products that <em>perform.</em></h1>
-          <p>Senior Shopify Plus and Full Stack Engineer building high-converting storefronts, custom apps, checkout systems and AI-powered ecommerce products.</p>
-          <div className="premium-actions"><a href="#work" className="premium-primary">View selected work <ArrowUpRight size={17} /></a><a href="mailto:farukhsultan.dev@gmail.com" className="premium-secondary">Start a conversation</a></div>
-          <div className="premium-meta"><span><MapPin size={15} /> Lahore, Pakistan</span><span>8+ years experience</span></div>
+          <div className="premium-availability">
+            <i /> Available for remote opportunities
+          </div>
+          <h1>
+            Engineering commerce products that <em>perform.</em>
+          </h1>
+          <p>
+            Senior Shopify Plus and Full Stack Engineer building high-converting
+            storefronts, custom apps, checkout systems and AI-powered ecommerce
+            products.
+          </p>
+          <div className="premium-actions">
+            <a href="#work" className="premium-primary">
+              View selected work <ArrowUpRight size={17} />
+            </a>
+            <a
+              href="mailto:farukhsultan.dev@gmail.com"
+              className="premium-secondary"
+            >
+              Start a conversation
+            </a>
+          </div>
+          <div className="premium-meta">
+            <span>
+              <MapPin size={15} /> Lahore, Pakistan
+            </span>
+            <span>8+ years experience</span>
+          </div>
         </div>
-        <motion.aside className="premium-profile-card" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .8, delay: .12, ease: [0.22,1,0.36,1] }}>
-          <div className="premium-profile-photo"><img src="/farrukh-profile.jpg" alt="Farrukh Sultan" /></div>
-          <div className="premium-profile-copy"><span>Senior Shopify Plus Engineer</span><strong>Farrukh Sultan</strong><p>Full Stack · AI · Ecommerce</p><a href="https://wa.me/923244176151" target="_blank" rel="noreferrer"><MessageCircle size={16} /> WhatsApp</a></div>
+        <motion.aside
+          className="premium-profile-card"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="premium-profile-photo">
+            <img src="/farrukh-profile.png" alt="Farrukh Sultan" />
+          </div>
+          <div className="premium-profile-copy">
+            <span>Senior Shopify Plus Engineer</span>
+            <strong>Farrukh Sultan</strong>
+            <p>Full Stack · AI · Ecommerce</p>
+            <a
+              href="https://wa.me/923244176151"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MessageCircle size={16} /> WhatsApp
+            </a>
+          </div>
         </motion.aside>
       </section>
 
-      <section className="premium-trust"><div className="premium-shell premium-trust-inner"><span>8+ YEARS</span><i/><span>SHOPIFY PLUS</span><i/><span>FULL STACK</span><i/><span>5★ CLIENT RATING</span><i/><span>REMOTE WORLDWIDE</span></div></section>
+      <section className="premium-trust">
+        <div className="premium-shell premium-trust-inner">
+          <span>8+ YEARS</span>
+          <i />
+          <span>SHOPIFY PLUS</span>
+          <i />
+          <span>FULL STACK</span>
+          <i />
+          <span>5★ CLIENT RATING</span>
+          <i />
+          <span>REMOTE WORLDWIDE</span>
+        </div>
+      </section>
 
       <section id="work" className="premium-section premium-shell">
-        <Reveal><div className="premium-section-head"><div><span>Selected work</span><h2>Selected commerce work.<br/>Built to perform.</h2></div><p>Production Shopify and full-stack projects shaped by performance, conversion, maintainability and real business goals.</p></div></Reveal>
-        <div className="premium-projects">{projects.map((project,index)=><Reveal key={project.name} delay={index*.04}><article className="premium-project"><a className="premium-project-media" href={project.url} target="_blank" rel="noreferrer"><div className="premium-browser"><i/><i/><i/><span>{project.url.replace("https://","")}</span></div><div className="premium-image-fallback"><strong>{project.name}</strong><span>Production storefront</span></div><img src={`/projects/${project.slug}-desktop.webp`} alt={`${project.name} storefront`} loading="lazy"/><div className="premium-mobile-preview"><img src={`/projects/${project.slug}-mobile.webp`} alt={`${project.name} mobile storefront`} loading="lazy"/></div></a><div className="premium-project-copy"><div className="premium-project-number">{project.index}</div><span className="premium-project-eyebrow">{project.eyebrow}</span><h3>{project.name}</h3><p>{project.description}</p><div className="premium-results">{project.results.map(item=><span key={item}><CheckCircle2 size={15}/>{item}</span>)}</div><div className="premium-stack">{project.stack.map(item=><span key={item}>{item}</span>)}</div><a className="premium-case-link" href={project.url} target="_blank" rel="noreferrer">Visit project <ArrowUpRight size={16}/></a></div></article></Reveal>)}</div>
+        <Reveal>
+          <div className="premium-section-head">
+            <div>
+              <span>Selected work</span>
+              <h2>
+                Selected commerce work.
+                <br />
+                Built to perform.
+              </h2>
+            </div>
+            <p>
+              Production Shopify and full-stack projects shaped by performance,
+              conversion, maintainability and real business goals.
+            </p>
+          </div>
+        </Reveal>
+        <div className="premium-projects">
+          {projects.map((project, index) => (
+            <Reveal key={project.name} delay={index * 0.04}>
+              <article className="premium-project">
+                <a
+                  className="premium-project-media"
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="premium-browser">
+                    <i />
+                    <i />
+                    <i />
+                    <span>{project.url.replace("https://", "")}</span>
+                  </div>
+                  <div className="premium-image-fallback">
+                    <strong>{project.name}</strong>
+                    <span>Production storefront</span>
+                  </div>
+                  <img
+                    src={`/projects/${project.slug}-desktop.webp`}
+                    alt={`${project.name} storefront`}
+                    loading="lazy"
+                  />
+                  <div className="premium-mobile-preview">
+                    <img
+                      src={`/projects/${project.slug}-mobile.webp`}
+                      alt={`${project.name} mobile storefront`}
+                      loading="lazy"
+                    />
+                  </div>
+                </a>
+                <div className="premium-project-copy">
+                  <div className="premium-project-number">{project.index}</div>
+                  <span className="premium-project-eyebrow">
+                    {project.eyebrow}
+                  </span>
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <div className="premium-results">
+                    {project.results.map((item) => (
+                      <span key={item}>
+                        <CheckCircle2 size={15} />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="premium-stack">
+                    {project.stack.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                  <a
+                    className="premium-case-link"
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visit project <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <section id="coding" className="premium-code-section premium-shell">
-        <Reveal><div className="premium-section-head"><div><span>Coding</span><h2>I build the systems<br/>behind the storefront.</h2></div><p>Commerce architecture is only useful when the code stays understandable, testable and production-ready.</p></div></Reveal>
-        <Reveal delay={.06}><div className="premium-code-window"><div className="premium-code-bar"><div><i/><i/><i/></div><span>commerce.ts</span></div><pre><code><span>01</span><b>const</b> commerce = {'{'}
-<span>02</span>  platform: <em>'Shopify Plus'</em>,
-<span>03</span>  architecture: [<em>'React'</em>, <em>'Node'</em>, <em>'GraphQL'</em>],
-<span>04</span>  checkout: <em>'custom'</em>,
-<span>05</span>  performance: <em>'measured'</em>,
-<span>06</span>  scale: <em>'production-ready'</em>,
-<span>07</span>{'}'};
-<span>08</span><b>ship</b>(commerce);</code></pre><div className="premium-code-status"><span>● ONLINE</span><span>TypeScript</span><span>UTF-8</span></div></div></Reveal>
+        <Reveal>
+          <div className="premium-section-head">
+            <div>
+              <span>Coding</span>
+              <h2>
+                I build the systems
+                <br />
+                behind the storefront.
+              </h2>
+            </div>
+            <p>
+              Commerce architecture is only useful when the code stays
+              understandable, testable and production-ready.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <div className="premium-code-window">
+            <div className="premium-code-bar">
+              <div>
+                <i />
+                <i />
+                <i />
+              </div>
+              <span>commerce.ts</span>
+            </div>
+            <pre>
+              <code>
+                <span>01</span>
+                <b>const</b> commerce = {"{"}
+                <span>02</span> platform: <em>'Shopify Plus'</em>,
+                <span>03</span> architecture: [<em>'React'</em>, <em>'Node'</em>
+                , <em>'GraphQL'</em>],
+                <span>04</span> checkout: <em>'custom'</em>,<span>05</span>{" "}
+                performance: <em>'measured'</em>,<span>06</span> scale:{" "}
+                <em>'production-ready'</em>,<span>07</span>
+                {"}"};<span>08</span>
+                <b>ship</b>(commerce);
+              </code>
+            </pre>
+            <div className="premium-code-status">
+              <span>● ONLINE</span>
+              <span>TypeScript</span>
+              <span>UTF-8</span>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       <section id="stack" className="premium-section premium-shell">
-        <Reveal><div className="premium-section-head"><div><span>Stack</span><h2>Tools chosen for<br/>the problem, not the trend.</h2></div><p>A practical stack covering Shopify, modern frontend, backend systems, infrastructure and AI.</p></div></Reveal>
-        <div className="premium-stack-grid">{stackGroups.map(([title,items],index)=><Reveal key={title as string} delay={index*.04}><article><span>0{index+1}</span><h3>{title}</h3><div>{(items as string[]).map(item=><em key={item}>{item}</em>)}</div></article></Reveal>)}</div>
+        <Reveal>
+          <div className="premium-section-head">
+            <div>
+              <span>Stack</span>
+              <h2>
+                Tools chosen for
+                <br />
+                the problem, not the trend.
+              </h2>
+            </div>
+            <p>
+              A practical stack covering Shopify, modern frontend, backend
+              systems, infrastructure and AI.
+            </p>
+          </div>
+        </Reveal>
+        <div className="premium-stack-grid">
+          {stackGroups.map(([title, items], index) => (
+            <Reveal key={title as string} delay={index * 0.04}>
+              <article>
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <div>
+                  {(items as string[]).map((item) => (
+                    <em key={item}>{item}</em>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
-      <section id="expertise" className="premium-section premium-shell"><Reveal><div className="premium-section-head"><div><span>Expertise</span><h2>Senior-level depth across<br/>the commerce stack.</h2></div><p>Focused on systems that need to be maintainable, measurable and reliable after launch.</p></div></Reveal><div className="premium-expertise-grid">{expertise.map(([title,description],index)=><Reveal key={title} delay={index*.04}><article><span>0{index+1}</span><h3>{title}</h3><p>{description}</p></article></Reveal>)}</div></section>
+      <section id="expertise" className="premium-section premium-shell">
+        <Reveal>
+          <div className="premium-section-head">
+            <div>
+              <span>Expertise</span>
+              <h2>
+                Senior-level depth across
+                <br />
+                the commerce stack.
+              </h2>
+            </div>
+            <p>
+              Focused on systems that need to be maintainable, measurable and
+              reliable after launch.
+            </p>
+          </div>
+        </Reveal>
+        <div className="premium-expertise-grid">
+          {expertise.map(([title, description], index) => (
+            <Reveal key={title} delay={index * 0.04}>
+              <article>
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
-      <section id="about" className="premium-about premium-shell"><Reveal><div><span className="premium-kicker">About</span><h2>I bridge technical depth<br/>with commercial thinking.</h2></div></Reveal><Reveal delay={.08}><div className="premium-about-copy"><p>For more than eight years, I&apos;ve worked with ecommerce brands across North America, Europe and the Middle East on storefronts, apps, checkout systems, backend platforms and AI-powered products.</p><p>I&apos;m most useful when the problem is technically difficult, commercially important, or both.</p></div></Reveal></section>
+      <section id="about" className="premium-about premium-shell">
+        <Reveal>
+          <div>
+            <span className="premium-kicker">About</span>
+            <h2>
+              I bridge technical depth
+              <br />
+              with commercial thinking.
+            </h2>
+          </div>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="premium-about-copy">
+            <p>
+              For more than eight years, I&apos;ve worked with ecommerce brands
+              across North America, Europe and the Middle East on storefronts,
+              apps, checkout systems, backend platforms and AI-powered products.
+            </p>
+            <p>
+              I&apos;m most useful when the problem is technically difficult,
+              commercially important, or both.
+            </p>
+          </div>
+        </Reveal>
+      </section>
 
-      <section id="experience" className="premium-section premium-shell"><Reveal><div className="premium-section-head"><div><span>Experience</span><h2>From implementation<br/>to technical leadership.</h2></div></div></Reveal><div className="premium-timeline">{experience.map(([date,role,company],index)=><Reveal key={date} delay={index*.04}><article><span>{date}</span><h3>{role}</h3><p>{company}</p></article></Reveal>)}</div></section>
+      <section id="experience" className="premium-section premium-shell">
+        <Reveal>
+          <div className="premium-section-head">
+            <div>
+              <span>Experience</span>
+              <h2>
+                From implementation
+                <br />
+                to technical leadership.
+              </h2>
+            </div>
+          </div>
+        </Reveal>
+        <div className="premium-timeline">
+          {experience.map(([date, role, company], index) => (
+            <Reveal key={date} delay={index * 0.04}>
+              <article>
+                <span>{date}</span>
+                <h3>{role}</h3>
+                <p>{company}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
-      <section id="archive" className="premium-more premium-shell"><Reveal><div><span className="premium-kicker">More production work</span><h2>A broader track record.</h2></div></Reveal><div className="premium-more-grid">{moreWork.map((name,index)=><div key={name}><span>{String(index+1).padStart(2,"0")}</span><strong>{name}</strong></div>)}</div></section>
+      <section id="archive" className="premium-more premium-shell">
+        <Reveal>
+          <div>
+            <span className="premium-kicker">More production work</span>
+            <h2>A broader track record.</h2>
+          </div>
+        </Reveal>
+        <div className="premium-more-grid">
+          {moreWork.map((name, index) => (
+            <div key={name}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{name}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <section id="contact" className="premium-contact premium-shell"><Reveal><span className="premium-kicker">Start a project</span><h2>Have a difficult commerce<br/>problem to solve?</h2><p>Tell me what you&apos;re building, what&apos;s blocking you, and what success needs to look like.</p><a href="mailto:farukhsultan.dev@gmail.com">farukhsultan.dev@gmail.com <ArrowUpRight/></a></Reveal><div className="premium-socials"><a href="https://wa.me/923244176151" target="_blank" rel="noreferrer"><MessageCircle size={17}/> WhatsApp</a><a href="https://github.com/AyFarukh" target="_blank" rel="noreferrer"><Github size={17}/> GitHub</a><a href="https://www.linkedin.com/in/farrukh-sultan-339721ba/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn</a><a href="mailto:farukhsultan.dev@gmail.com"><Mail size={17}/> Email</a></div></section>
-      <footer className="premium-footer premium-shell"><span>© 2026 Farrukh Sultan</span><span>Shopify Plus · Full Stack · AI</span></footer>
+      <section id="contact" className="premium-contact premium-shell">
+        <Reveal>
+          <span className="premium-kicker">Start a project</span>
+          <h2>
+            Have a difficult commerce
+            <br />
+            problem to solve?
+          </h2>
+          <p>
+            Tell me what you&apos;re building, what&apos;s blocking you, and
+            what success needs to look like.
+          </p>
+          <a href="mailto:farukhsultan.dev@gmail.com">
+            farukhsultan.dev@gmail.com <ArrowUpRight />
+          </a>
+        </Reveal>
+        <div className="premium-socials">
+          <a href="https://wa.me/923244176151" target="_blank" rel="noreferrer">
+            <MessageCircle size={17} /> WhatsApp
+          </a>
+          <a
+            href="https://github.com/AyFarukh"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Github size={17} /> GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/farrukh-sultan-339721ba/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Linkedin size={17} /> LinkedIn
+          </a>
+          <a href="mailto:farukhsultan.dev@gmail.com">
+            <Mail size={17} /> Email
+          </a>
+        </div>
+      </section>
+      <footer className="premium-footer premium-shell">
+        <span>© 2026 Farrukh Sultan</span>
+        <span>Shopify Plus · Full Stack · AI</span>
+      </footer>
     </main>
   );
 }
