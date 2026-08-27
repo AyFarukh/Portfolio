@@ -4,9 +4,7 @@ export const siteConfig = {
   description:
     "Senior Shopify Plus Developer and Full Stack Engineer with 8+ years of experience building custom Shopify apps, checkout extensions, high-performance storefronts, headless commerce and AI-powered ecommerce products.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://farrukhsultan.dev").replace(/\/$/, ""),
-  email: "farukhsultan.dev@gmail.com",
-  phone: "+923244176151",
-  whatsapp: "https://wa.me/923244176151",
+  email: "farukh.5937@gmail.com",
   location: "Lahore, Pakistan",
   linkedin: "https://www.linkedin.com/in/farrukh-sultan-339721ba/",
   github: "https://github.com/AyFarukh",
