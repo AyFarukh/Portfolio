@@ -14,11 +14,8 @@ import "./project-gallery.css";
 import "./client-success.css";
 import "./mobile-navigation.css";
 import "./premium-home.css";
-import MultilingualGreeting from "./MultilingualGreeting";
 import SelfLearningChatbot from "./SelfLearningChatbot";
-import SiteExperience from "./SiteExperience";
 import StructuredData from "./StructuredData";
-import ClientSuccess from "./ClientSuccess";
 import MobileNavigation from "./MobileNavigation";
 import { siteConfig } from "./seo-config";
 
@@ -26,18 +23,12 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f7fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#07090d" },
-  ],
+  themeColor: "#080b11",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.title,
-    template: "%s | Farrukh Sultan",
-  },
+  title: { default: siteConfig.title, template: "%s | Farrukh Sultan" },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
@@ -47,10 +38,7 @@ export const metadata: Metadata = {
   category: "technology",
   classification: "Shopify Plus Development, Full Stack Engineering, Ecommerce Development",
   referrer: "origin-when-cross-origin",
-  alternates: {
-    canonical: "/",
-    languages: { "en-US": "/" },
-  },
+  alternates: { canonical: "/", languages: { "en-US": "/" } },
   icons: {
     icon: [{ url: "/fs-monogram.svg", type: "image/svg+xml" }],
     shortcut: "/fs-monogram.svg",
@@ -66,14 +54,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     firstName: "Farrukh",
     lastName: "Sultan",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Farrukh Sultan — Senior Shopify Plus Developer and Full Stack Engineer",
-      },
-    ],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Farrukh Sultan — Senior Shopify Plus Developer and Full Stack Engineer" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -94,13 +75,8 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-  },
-  other: {
-    "geo.region": "PK-PB",
-    "geo.placename": "Lahore",
-  },
+  verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
+  other: { "geo.region": "PK-PB", "geo.placename": "Lahore" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -108,11 +84,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-US" suppressHydrationWarning>
       <body>
         <StructuredData />
-        <SiteExperience />
         <MobileNavigation />
-        <MultilingualGreeting />
         {children}
-        <ClientSuccess />
         <SelfLearningChatbot />
       </body>
     </html>
