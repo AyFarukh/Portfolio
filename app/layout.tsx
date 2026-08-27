@@ -20,6 +20,7 @@ import SelfLearningChatbot from "./SelfLearningChatbot";
 import StructuredData from "./StructuredData";
 import MobileNavigation from "./MobileNavigation";
 import CustomCursor from "./CustomCursor";
+import MultilingualGreeting from "./MultilingualGreeting";
 import { siteConfig } from "./seo-config";
 
 export const viewport: Viewport = {
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-US" suppressHydrationWarning>
       <body>
         <StructuredData />
+        <MultilingualGreeting />
         <CustomCursor />
         <MobileNavigation />
         {children}
