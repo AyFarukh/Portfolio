@@ -14,9 +14,11 @@ import "./project-gallery.css";
 import "./client-success.css";
 import "./mobile-navigation.css";
 import "./premium-home.css";
+import "./custom-cursor.css";
 import SelfLearningChatbot from "./SelfLearningChatbot";
 import StructuredData from "./StructuredData";
 import MobileNavigation from "./MobileNavigation";
+import CustomCursor from "./CustomCursor";
 import { siteConfig } from "./seo-config";
 
 export const viewport: Viewport = {
@@ -84,6 +86,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-US" suppressHydrationWarning>
       <body>
         <StructuredData />
+        <CustomCursor />
         <MobileNavigation />
         {children}
         <SelfLearningChatbot />
