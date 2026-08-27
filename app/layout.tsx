@@ -13,13 +13,11 @@ import "./brand-identity.css";
 import "./project-gallery.css";
 import "./client-success.css";
 import "./mobile-navigation.css";
+import "./premium-home.css";
 import MultilingualGreeting from "./MultilingualGreeting";
-import PortfolioBackendFeatures from "./PortfolioBackendFeatures";
 import SelfLearningChatbot from "./SelfLearningChatbot";
-import PortfolioLab from "./PortfolioLab";
 import SiteExperience from "./SiteExperience";
 import StructuredData from "./StructuredData";
-import ProjectScreenshotGallery from "./ProjectScreenshotGallery";
 import ClientSuccess from "./ClientSuccess";
 import MobileNavigation from "./MobileNavigation";
 import { siteConfig } from "./seo-config";
@@ -115,9 +113,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <MultilingualGreeting />
         {children}
         <ClientSuccess />
-        <PortfolioLab />
-        <ProjectScreenshotGallery />
-        <PortfolioBackendFeatures />
         <SelfLearningChatbot />
       </body>
     </html>
