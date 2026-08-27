@@ -15,6 +15,7 @@ import "./client-success.css";
 import "./mobile-navigation.css";
 import "./premium-home.css";
 import "./custom-cursor.css";
+import "./mobile-polish.css";
 import SelfLearningChatbot from "./SelfLearningChatbot";
 import StructuredData from "./StructuredData";
 import MobileNavigation from "./MobileNavigation";
@@ -42,9 +43,9 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   alternates: { canonical: "/", languages: { "en-US": "/" } },
   icons: {
-    icon: [{ url: "/fs-monogram.svg", type: "image/svg+xml" }],
-    shortcut: "/fs-monogram.svg",
-    apple: "/fs-monogram.svg",
+    icon: [{ url: "/farrukh-favicon.jpg", type: "image/jpeg" }],
+    shortcut: "/farrukh-favicon.jpg",
+    apple: "/farrukh-favicon.jpg",
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
