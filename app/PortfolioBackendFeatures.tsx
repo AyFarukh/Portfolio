@@ -34,9 +34,15 @@ const projectScreens = [
   { name: "AI Wheel Visualizer", url: "#contact" },
 ];
 
-function screenshot(url: string, width: number) {
-  if (!url.startsWith("http")) return "";
-  return `https://image.thum.io/get/width/${width}/crop/900/noanimate/${url}`;
+function localScreenshot(projectName: string, kind: "desktop" | "mobile") {
+  const slugMap: Record<string, string> = {
+    "Maniac Nails": "maniac-nails",
+    "Free The Roots": "free-the-roots",
+    "Laudi Vidni": "laudi-vidni",
+    "Starfire Direct": "starfire-direct",
+  };
+  const slug = slugMap[projectName];
+  return slug ? `/projects/${slug}-${kind}.webp` : "";
 }
 
 function ContactForm() {
@@ -212,7 +218,7 @@ function useProjectEnhancements() {
       media.className = "case-device-showcase";
 
       if (project.url.startsWith("http")) {
-        media.innerHTML = `<div class="device desktop"><div class="device-bar"><i></i><i></i><i></i><span>${project.url.replace("https://", "")}</span></div><img src="${screenshot(project.url, 1400)}" alt="${project.name} desktop website preview" loading="lazy" /></div><div class="device mobile"><div class="mobile-notch"></div><img src="${screenshot(project.url, 520)}" alt="${project.name} mobile website preview" loading="lazy" /></div>`;
+        media.innerHTML = `<div class="device desktop"><div class="device-bar"><i></i><i></i><i></i><span>${project.url.replace("https://", "")}</span></div><img src="${localScreenshot(project.name, "desktop")}" alt="${project.name} desktop website preview" loading="lazy" /></div><div class="device mobile"><div class="mobile-notch"></div><img src="${localScreenshot(project.name, "mobile")}" alt="${project.name} mobile website preview" loading="lazy" /></div>`;
       } else {
         media.innerHTML = `<div class="ai-preview"><span>AI / COMPUTER VISION</span><strong>Wheel detection → segmentation → realistic product compositing</strong><div class="ai-grid"></div></div>`;
       }
