@@ -8,9 +8,9 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "standalone",
     background_color: "#07090d",
-    theme_color: "#6d5ef5",
+    theme_color: "#080b11",
     icons: [
-      { src: "/fs-monogram.svg", sizes: "any", type: "image/svg+xml" },
+      { src: "/farrukh-favicon.jpg", sizes: "192x192", type: "image/jpeg", purpose: "any" },
     ],
   };
 }
