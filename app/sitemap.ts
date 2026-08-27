@@ -6,14 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: siteConfig.url,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 1,
-    },
-    {
-      url: `${siteConfig.url}/admin/chatbot`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0,
     },
   ];
 }
